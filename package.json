@@ -1,0 +1,6 @@
+{
+    "name": "stream-countdown-overlay",
+    "version": "1.0.0-SNAPSHOT",
+    "main": "main.js",
+    "private": true
+}
