@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-
-<!--
+/*
 
 stream-countdown-overlay : Countdown Overlay for Twitch Streams
 
@@ -24,15 +22,35 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
--->
+*/
 
-<html>
-    <head>
-        <title>Hello World</title>
-        <script src="http://cdn.jsdelivr.net/npm/phaser-ce@2.9.4"></script>
-        <script src="overlay.js"></script>
-        <link rel="stylesheet" href="overlay.css">
-    </head>
-    <body onload="start()">
-    </body>
-</html>
+var width  = 4800;
+var height = 2700;
+
+var game;
+
+function start()
+{
+    game = new Phaser.Game( width, height, Phaser.AUTO, "", { preload: preload, create: create } );
+};
+
+function preload()
+{
+    window.onresize = resize;
+};
+
+function create()
+{
+    resize();
+
+    var textProperties = { font: "500px Sans", fill: "#FFFFFF" };
+    var helloText = game.add.text( width / 2, height / 2, "Hello World", textProperties );
+    helloText.anchor.set( 0.5, 0.5 );
+};
+
+function resize()
+{
+    game.scale.setGameSize( window.innerWidth, window.innerHeight );
+    game.scale = new Phaser.ScaleManager( game, width, height );
+    game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+};

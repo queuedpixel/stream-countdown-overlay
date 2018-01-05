@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-
-<!--
+/*
 
 stream-countdown-overlay : Countdown Overlay for Twitch Streams
 
@@ -24,15 +22,16 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
--->
+*/
 
-<html>
-    <head>
-        <title>Hello World</title>
-        <script src="http://cdn.jsdelivr.net/npm/phaser-ce@2.9.4"></script>
-        <script src="overlay.js"></script>
-        <link rel="stylesheet" href="overlay.css">
-    </head>
-    <body onload="start()">
-    </body>
-</html>
+body
+{
+    margin           : 0px;
+    padding          : 0px;
+    overflow         : hidden;
+    background-color : #555555;
+    position         : absolute;
+    left             : 50%;
+    top              : 50%;
+    transform        : translate( -50%, -50% );
+}
