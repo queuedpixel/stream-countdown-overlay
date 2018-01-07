@@ -28,7 +28,7 @@ var width  = 4800;
 var height = 2700;
 
 var game;
-var helloText;
+var messageText;
 var fpsText;
 
 function start()
@@ -49,9 +49,9 @@ function create()
     game.stage.disableVisibilityChange = true;
 
     var textProperties = { font: "500px Single Sleeve, Sans", fill: "#FFFFFF" };
-    helloText = game.add.text( width / 2, height / 2, "Hello World", textProperties );
-    helloText.anchor.set( 0.5, 0.5 );
-    game.add.tween( helloText.scale ).to( { x: 0.9, y: 0.9 }, 1000, "Sine.easeInOut", true, 0, -1, true );
+    messageText = game.add.text( width / 2, height / 2, "Stream Starting", textProperties );
+    messageText.anchor.set( 0.5, 0.5 );
+    game.add.tween( messageText.scale ).to( { x: 0.9, y: 0.9 }, 1000, "Sine.easeInOut", true, 0, -1, true );
 
     textProperties = { font: "100px Monospace", fill: "#FFFFFF" };
     fpsText = game.add.text( 50, 50, null, textProperties );
