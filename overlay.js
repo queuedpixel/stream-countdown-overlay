@@ -28,8 +28,8 @@ var width  = 4800;
 var height = 2700;
 
 var game;
-var messageText;
 var fpsText;
+var messageText;
 
 function start()
 {
@@ -48,14 +48,14 @@ function create()
     game.time.advancedTiming = true;
     game.stage.disableVisibilityChange = true;
 
+    var fpsTextProperties = { font: "100px Monospace", fill: "#FFFFFF" };
+    fpsText = game.add.text( 50, 50, null, fpsTextProperties );
+    fpsText.anchor.set( 0, 0 );
+
     var messageTextProperties = { font: "500px Single Sleeve, Sans", fill: "#FFFFFF" };
     messageText = game.add.text( width / 2, height / 2, "Stream Starting", messageTextProperties );
     messageText.anchor.set( 0.5, 0.5 );
     game.add.tween( messageText.scale ).to( { x: 0.9, y: 0.9 }, 1000, "Sine.easeInOut", true, 0, -1, true );
-
-    var fpsTextProperties = { font: "100px Monospace", fill: "#FFFFFF" };
-    fpsText = game.add.text( 50, 50, null, fpsTextProperties );
-    fpsText.anchor.set( 0, 0 );
 };
 
 function update()
