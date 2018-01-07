@@ -27,9 +27,16 @@ SOFTWARE.
 var width  = 4800;
 var height = 2700;
 
+var countdownTime = 601000;
+
+var numberFormat = new Intl.NumberFormat( "en-US", { useGrouping: false, minimumIntegerDigits: 2 } );
+
 var game;
 var fpsText;
 var messageText;
+var countdownText;
+var soonText;
+var startTime = new Date();
 
 function start()
 {
@@ -56,11 +63,36 @@ function create()
     messageText = game.add.text( width / 2, height / 2, "Stream Starting", messageTextProperties );
     messageText.anchor.set( 0.5, 0.5 );
     game.add.tween( messageText.scale ).to( { x: 0.9, y: 0.9 }, 1000, "Sine.easeInOut", true, 0, -1, true );
+
+    var countdownTextProperties = { font: "400px Monospace", fill: "#FFFFFF" };
+    countdownText = game.add.text( width / 2, height * ( 4 / 5 ), null, countdownTextProperties );
+    countdownText.anchor.set( 0.5, 0.5 );
+
+    var soonTextProperties = { font: "500px Single Sleeve, Sans", fill: "#FFFFFF" };
+    soonText = game.add.text( width / 2, height * ( 31 / 40 ), null, soonTextProperties );
+    soonText.anchor.set( 0.5, 0.5 );
 };
 
 function update()
 {
     fpsText.text = game.time.fps;
+
+    var curTime = new Date();
+    var remainingTime = countdownTime - ( curTime.valueOf() - startTime.valueOf() );
+
+    if ( remainingTime >= 1000 )
+    {
+        var seconds = Math.floor( remainingTime / 1000 );
+        var minutes = Math.floor( seconds / 60 );
+        seconds = seconds % 60;
+        countdownText.text = numberFormat.format( minutes ) + ":" + numberFormat.format( seconds );
+        soonText.text = "";
+    }
+    else
+    {
+        countdownText.text = "";
+        soonText.text = "Soon";
+    }
 };
 
 function resize()
