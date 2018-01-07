@@ -46,6 +46,7 @@ function create()
     resize();
 
     game.time.advancedTiming = true;
+    game.stage.disableVisibilityChange = true;
 
     var textProperties = { font: "500px Sans", fill: "#FFFFFF" };
     helloText = game.add.text( width / 2, height / 2, "Hello World", textProperties );
