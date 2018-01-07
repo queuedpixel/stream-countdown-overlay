@@ -30,7 +30,7 @@ var url      = require( "url"      );
 
 function start()
 {
-    var window = new electron.BrowserWindow();
+    var window = new electron.BrowserWindow( { fullscreen: true } );
     window.loadURL(
             url.format( { pathname: path.join( __dirname, "overlay.html" ), protocol: 'file:', slashes: true } ));
 };
