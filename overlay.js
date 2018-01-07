@@ -24,9 +24,10 @@ SOFTWARE.
 
 */
 
-var width         = 4800;
-var height        = 2700;
-var countdownTime = 600000;
+var width           = 4800;
+var height          = 2700;
+var countdownTime   = 600000;
+var countdownBuffer = 5000;
 
 var numberFormat = new Intl.NumberFormat( "en-US", { useGrouping: false, minimumIntegerDigits: 2 } );
 
@@ -77,7 +78,8 @@ function update()
     fpsText.text = game.time.fps;
 
     var curTime = new Date();
-    var remainingTime = countdownTime - ( curTime.valueOf() - startTime.valueOf() );
+    var remainingTime = ( countdownTime + countdownBuffer ) - ( curTime.valueOf() - startTime.valueOf() );
+    if ( remainingTime > countdownTime ) remainingTime = countdownTime;
 
     if ( remainingTime >= 1000 )
     {
