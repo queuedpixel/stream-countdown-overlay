@@ -26,7 +26,7 @@ SOFTWARE.
 
 var width         = 4800;
 var height        = 2700;
-var countdownTime = 605000;
+var countdownTime = 600000;
 
 var numberFormat = new Intl.NumberFormat( "en-US", { useGrouping: false, minimumIntegerDigits: 2 } );
 
