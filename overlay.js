@@ -28,10 +28,11 @@ var width  = 4800;
 var height = 2700;
 
 var game;
+var fpsText;
 
 function start()
 {
-    game = new Phaser.Game( width, height, Phaser.AUTO, "", { preload: preload, create: create } );
+    game = new Phaser.Game( width, height, Phaser.AUTO, "", { preload: preload, create: create, update: update } );
 };
 
 function preload()
@@ -43,9 +44,20 @@ function create()
 {
     resize();
 
+    game.time.advancedTiming = true;
+
     var textProperties = { font: "500px Sans", fill: "#FFFFFF" };
     var helloText = game.add.text( width / 2, height / 2, "Hello World", textProperties );
     helloText.anchor.set( 0.5, 0.5 );
+
+    textProperties = { font: "100px Monospace", fill: "#FFFFFF" };
+    fpsText = game.add.text( 50, 50, null, textProperties );
+    fpsText.anchor.set( 0, 0 );
+};
+
+function update()
+{
+    fpsText.text = game.time.fps;
 };
 
 function resize()
