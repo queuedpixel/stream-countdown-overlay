@@ -48,7 +48,7 @@ function create()
     game.time.advancedTiming = true;
     game.stage.disableVisibilityChange = true;
 
-    var textProperties = { font: "500px Sans", fill: "#FFFFFF" };
+    var textProperties = { font: "500px Single Sleeve, Sans", fill: "#FFFFFF" };
     helloText = game.add.text( width / 2, height / 2, "Hello World", textProperties );
     helloText.anchor.set( 0.5, 0.5 );
     game.add.tween( helloText.scale ).to( { x: 0.9, y: 0.9 }, 1000, "Sine.easeInOut", true, 0, -1, true );
