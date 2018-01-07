@@ -28,6 +28,7 @@ var width  = 4800;
 var height = 2700;
 
 var game;
+var helloText;
 var fpsText;
 
 function start()
@@ -47,8 +48,9 @@ function create()
     game.time.advancedTiming = true;
 
     var textProperties = { font: "500px Sans", fill: "#FFFFFF" };
-    var helloText = game.add.text( width / 2, height / 2, "Hello World", textProperties );
+    helloText = game.add.text( width / 2, height / 2, "Hello World", textProperties );
     helloText.anchor.set( 0.5, 0.5 );
+    game.add.tween( helloText.scale ).to( { x: 0.9, y: 0.9 }, 1000, "Sine.easeInOut", true, 0, -1, true );
 
     textProperties = { font: "100px Monospace", fill: "#FFFFFF" };
     fpsText = game.add.text( 50, 50, null, textProperties );
