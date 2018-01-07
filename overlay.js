@@ -24,6 +24,7 @@ SOFTWARE.
 
 */
 
+var debug           = false;
 var width           = 4800;
 var height          = 2700;
 var countdownTime   = 600000;
@@ -52,7 +53,7 @@ function create()
 {
     resize();
 
-    game.time.advancedTiming = true;
+    if ( debug ) game.time.advancedTiming = true;
     game.stage.disableVisibilityChange = true;
 
     var fpsTextProperties = { font: "100px Monospace", fill: "#FFFFFF" };
@@ -75,7 +76,7 @@ function create()
 
 function update()
 {
-    fpsText.text = game.time.fps;
+    if ( debug ) fpsText.text = game.time.fps;
 
     var curTime = new Date();
     var remainingTime = ( countdownTime + countdownBuffer ) - ( curTime.valueOf() - startTime.valueOf() );
