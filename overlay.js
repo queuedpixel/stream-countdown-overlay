@@ -31,11 +31,24 @@ var countdownMinutes = 10;
 var countdownSeconds = 0;
 var countdownBuffer  = 5000;
 
+var message1 = "Stream Starting";
+var message2 = null;
+var displayCountdown = true;
+
+// var message1 = "Will Return";
+// var message2 = null;
+// var displayCountdown = true;
+
+// var message1 = "Thanks for";
+// var message2 = "Watching";
+// var displayCountdown = false;
+
 var numberFormat = new Intl.NumberFormat( "en-US", { useGrouping: false, minimumIntegerDigits: 2 } );
 
 var game;
 var fpsText;
-var messageText;
+var messageText1;
+var messageText2;
 var countdownText;
 var soonText;
 var startTime = new Date();
@@ -63,9 +76,14 @@ function create()
     fpsText.anchor.set( 0, 0 );
 
     var messageTextProperties = { font: "500px Single Sleeve, Sans", fill: "#FFFFFF" };
-    messageText = game.add.text( width / 2, height / 2, "Stream Starting", messageTextProperties );
-    messageText.anchor.set( 0.5, 0.5 );
-    game.add.tween( messageText.scale ).to( { x: 0.9, y: 0.9 }, 1000, "Sine.easeInOut", true, 0, -1, true );
+
+    messageText1 = game.add.text( width / 2, height / 2, message1, messageTextProperties );
+    messageText1.anchor.set( 0.5, 0.5 );
+    game.add.tween( messageText1.scale ).to( { x: 0.9, y: 0.9 }, 1000, "Sine.easeInOut", true, 0, -1, true );
+
+    messageText2 = game.add.text( width / 2, height * ( 31 / 40 ), message2, messageTextProperties );
+    messageText2.anchor.set( 0.5, 0.5 );
+    game.add.tween( messageText2.scale ).to( { x: 0.9, y: 0.9 }, 1000, "Sine.easeInOut", true, 0, -1, true );
 
     var countdownTextProperties = { font: "400px Monospace", fill: "#FFFFFF" };
     countdownText = game.add.text( width / 2, height * ( 4 / 5 ), null, countdownTextProperties );
@@ -80,22 +98,25 @@ function update()
 {
     if ( debug ) fpsText.text = game.time.fps;
 
-    var curTime = new Date();
-    var remainingTime = ( countdownTime + countdownBuffer ) - ( curTime.valueOf() - startTime.valueOf() );
-    if ( remainingTime > countdownTime ) remainingTime = countdownTime;
+    if ( displayCountdown )
+    {
+        var curTime = new Date();
+        var remainingTime = ( countdownTime + countdownBuffer ) - ( curTime.valueOf() - startTime.valueOf() );
+        if ( remainingTime > countdownTime ) remainingTime = countdownTime;
 
-    if ( remainingTime >= 1000 )
-    {
-        var seconds = Math.floor( remainingTime / 1000 );
-        var minutes = Math.floor( seconds / 60 );
-        seconds = seconds % 60;
-        countdownText.text = numberFormat.format( minutes ) + ":" + numberFormat.format( seconds );
-        soonText.text = "";
-    }
-    else
-    {
-        countdownText.text = "";
-        soonText.text = "Soon";
+        if ( remainingTime >= 1000 )
+        {
+            var seconds = Math.floor( remainingTime / 1000 );
+            var minutes = Math.floor( seconds / 60 );
+            seconds = seconds % 60;
+            countdownText.text = numberFormat.format( minutes ) + ":" + numberFormat.format( seconds );
+            soonText.text = "";
+        }
+        else
+        {
+            countdownText.text = "";
+            soonText.text = "Soon";
+        }
     }
 };
 
