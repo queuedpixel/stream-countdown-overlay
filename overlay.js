@@ -24,11 +24,12 @@ SOFTWARE.
 
 */
 
-var debug           = false;
-var width           = 4800;
-var height          = 2700;
-var countdownTime   = 600000;
-var countdownBuffer = 5000;
+var debug            = false;
+var width            = 4800;
+var height           = 2700;
+var countdownMinutes = 10;
+var countdownSeconds = 0;
+var countdownBuffer  = 5000;
 
 var numberFormat = new Intl.NumberFormat( "en-US", { useGrouping: false, minimumIntegerDigits: 2 } );
 
@@ -38,6 +39,7 @@ var messageText;
 var countdownText;
 var soonText;
 var startTime = new Date();
+var countdownTime = (( countdownMinutes * 60 ) + countdownSeconds ) * 1000;
 
 function start()
 {
