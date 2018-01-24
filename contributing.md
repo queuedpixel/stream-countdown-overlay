@@ -9,4 +9,4 @@ Download the CLA for this project here: <http://files.queuedpixel.com/cla_stream
 
 Send a scanned copy of the signed CLA via email to: <cla@queuedpixel.com>
 
-Once submitted, you will receive a confirmation email and be added to the project contributors page: <contributors.md>
+Once submitted, you will receive a confirmation email and be added to the [project contributors page](contributors.md).
