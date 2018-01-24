@@ -1,4 +1,6 @@
-# Contributor License Agreement
+# Contributing
+
+## Contributor License Agreement
 
 **Please note that this is a work in progress and that the links, documents, and email addresses referenced in it are
 not available yet.**
