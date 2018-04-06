@@ -1,3 +1,3 @@
 # Project Contributors
 
-The following people have submitted signed CLAs for this project.
+The following contributors have submitted signed Contributor License Agreements for this project:
