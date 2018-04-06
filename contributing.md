@@ -2,12 +2,9 @@
 
 ## Contributor License Agreement
 
-**Please note that this is a work in progress and that the links, documents, and email addresses referenced in it are
-not available yet.**
-
 All contributors must sign and submit a Contributor License Agreement (CLA).
 
-Download the CLA for this project here: <http://files.queuedpixel.com/cla_stream-countdown-overlay.pdf>
+Download the CLA for this project: <http://files.queuedpixel.com/stream-countdown-overlay_v01.pdf>
 
 Send a scanned copy of the signed CLA via email to: <cla@queuedpixel.com>
 
